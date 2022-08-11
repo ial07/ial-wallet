@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1013048315651-931u1l4nkj5ha2osg6t3mb3abdb9qsed.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1013048315651-931u1l4nkj5ha2osg6t3mb3abdb9qsed</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1013048315651-pjsemd6jqf7h7q0iov8q33usnm0m1vfv.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDOPmI6bXYcITX147m-zciM5LRQ2mt7Svw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1013048315651</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.ialWallet</string>
+	<key>PROJECT_ID</key>
+	<string>ial-wallet-ae502</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ial-wallet-ae502.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1013048315651:ios:8dd20a5a1379f6a6676336</string>
+</dict>
+</plist>
