@@ -44,6 +44,11 @@ void main() {
 
 
 
-<br>
  1. First, you must register into the apps, and validate your email on inbox or spam
-![GitHub Logo](/images/1.png)
+![register](/images/1.png)
+ 2. login page
+![Login](images/2.png)
+ 3. input exspenses apps 
+![homepage](images/3.png)
+ <br>
+
