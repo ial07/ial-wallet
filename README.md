@@ -1,16 +1,42 @@
-# ial_wallet
+/// how to sort week in year
 
-A new Flutter project.
+void main() {
+ 
+  var a = [
+    {
+      "nama" : "adi",
+      "week"  : 7
+    },
+    {
+      "nama" : "hadi",
+      "week"  : 6
+    },
+    {
+      "nama" : "fadi",
+      "week"  : 7
+    },
+    {
+      "nama" : "dadi",
+      "week"  : 13
+    },
+    {
+      "nama" : "hjadi",
+      "week"  : 45
+    },
+  ];
+  
+  Map<String, List<Object>> week ={};
+  
+  for (int i = 1; i < 53; i++) {
+    List<Object> content= [];
+   for(int j = 0; j < a.length; j++){
+         if(a[j]["week"] == i){
+           content.add(a[j]);
+         }
+   }
+//     print(content);
+    week["week"+i.toString()] = content; 
+  }
+  print(week);
+}
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
