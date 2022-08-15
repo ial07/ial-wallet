@@ -8,7 +8,8 @@ import 'package:week_of_year/week_of_year.dart';
 
 class MutasiController extends GetxController {
   var date = DateTime.now();
-  var currDate = DateTime.now().month.toString();
+  final dateDesc = DateFormat("MMMM").format(DateTime.now()).toString();
+
   var yesterday = DateFormat("dd-MM-yyyy")
       .format(DateTime.now().add(Duration(days: -1)))
       .toString();
@@ -16,7 +17,8 @@ class MutasiController extends GetxController {
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  final valueChoose = "August".obs;
+  var valueChoose = "January".obs;
+
   var monthsInYear = [
     "January",
     "February",
@@ -32,8 +34,28 @@ class MutasiController extends GetxController {
     "December"
   ];
 
+  Map<String, int> key = {
+    "January": 1,
+    "February": 2,
+    "March": 3,
+    "April": 4,
+    "May": 5,
+    "June": 6,
+    "July": 7,
+    "August": 8,
+    "September": 9,
+    "October": 10,
+    "November": 11,
+    "December": 12
+  };
+
   void setSelected(String value) {
     valueChoose.value = value;
+    Get.reload();
+    streamExpenseWeek();
+    streamExpenseMonth();
+    streamExpenseYesterday();
+    streamInclusion();
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> streamExpenseYesterday() async* {
@@ -41,16 +63,17 @@ class MutasiController extends GetxController {
     yield* firestore
         .collection("expense")
         .where("date", isEqualTo: yesterday)
+        .where("month", isEqualTo: key[valueChoose])
         .where("uid", isEqualTo: uid)
         .snapshots();
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> streamExpenseMonth() async* {
     String uid = auth.currentUser!.uid;
-    print(yesterday);
+
     yield* firestore
         .collection("expense")
-        .where("month", isEqualTo: int.parse(currDate))
+        .where("month", isEqualTo: key[valueChoose])
         .where("uid", isEqualTo: uid)
         .snapshots();
   }
@@ -60,6 +83,7 @@ class MutasiController extends GetxController {
     yield* firestore
         .collection("expense")
         .where("week", isEqualTo: date.weekOfYear)
+        .where("month", isEqualTo: key[valueChoose])
         .where("uid", isEqualTo: uid)
         .snapshots();
   }
@@ -68,7 +92,17 @@ class MutasiController extends GetxController {
     String uid = auth.currentUser!.uid;
     yield* firestore
         .collection("inclusion")
+        .where("month", isEqualTo: key[valueChoose])
         .where("uid", isEqualTo: uid)
         .snapshots();
+  }
+
+  @override
+  void onInit() {
+    streamExpenseWeek();
+    streamExpenseMonth();
+    streamExpenseYesterday();
+    streamInclusion();
+    super.onInit();
   }
 }

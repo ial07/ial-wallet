@@ -46,6 +46,7 @@ class MutasiView extends GetView<MutasiController> {
                         }).toList(),
                         onChanged: (newValue) {
                           controller.setSelected(newValue.toString());
+                          Get.offAndToNamed(Routes.MUTASI);
                         },
                       )),
                 ],
@@ -278,7 +279,7 @@ class MutasiView extends GetView<MutasiController> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.MONTHS_LIST),
             child: Card(
               elevation: 8,
               shape: RoundedRectangleBorder(
@@ -364,7 +365,8 @@ class MutasiView extends GetView<MutasiController> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextButton(
-                                    onPressed: () {},
+                                    onPressed: () =>
+                                        Get.toNamed(Routes.MONTHS_LIST),
                                     child: Text(
                                       "VIEW MORE",
                                       style: TextStyle(
@@ -386,7 +388,7 @@ class MutasiView extends GetView<MutasiController> {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () => Get.toNamed(Routes.MONTHS_INCOME),
             child: Card(
               elevation: 8,
               shape: RoundedRectangleBorder(
@@ -413,7 +415,7 @@ class MutasiView extends GetView<MutasiController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Your inclusions",
+                                      "Your income",
                                       style: TextStyle(
                                           fontSize: 19, color: Colors.black87),
                                     ),
@@ -422,7 +424,7 @@ class MutasiView extends GetView<MutasiController> {
                                       style: TextStyle(
                                         fontSize: 32,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.orange[700],
+                                        color: Colors.green[700],
                                       ),
                                     ),
                                   ],
@@ -454,7 +456,7 @@ class MutasiView extends GetView<MutasiController> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Your inclusions",
+                                    "Your income",
                                     style: TextStyle(
                                         fontSize: 19, color: Colors.black87),
                                   ),
@@ -472,7 +474,8 @@ class MutasiView extends GetView<MutasiController> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextButton(
-                                    onPressed: () {},
+                                    onPressed: () =>
+                                        Get.toNamed(Routes.MONTHS_INCOME),
                                     child: Text(
                                       "VIEW MORE",
                                       style: TextStyle(

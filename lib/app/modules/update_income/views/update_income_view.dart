@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
-import '../controllers/expenses_controller.dart';
+import '../controllers/update_income_controller.dart';
 
-class ExpensesView extends GetView<ExpensesController> {
+class UpdateIncomeView extends GetView<UpdateIncomeController> {
+  Map<String, dynamic> data = Get.arguments;
   @override
   Widget build(BuildContext context) {
+    // print(data);
+    controller.expenseC.text = data["expense"];
+    controller.descC.text = data["desc"];
+    controller.createdAt.value = data["createdAt"];
     return Scaffold(
       appBar: AppBar(
-        title: Text('EXPENSE'),
+        title: Text('UPDATE INCOME'),
         centerTitle: true,
       ),
       body: ListView(
@@ -24,31 +28,6 @@ class ExpensesView extends GetView<ExpensesController> {
               labelText: "Your expense",
               border: OutlineInputBorder(),
             ),
-          ),
-          SizedBox(height: 10),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Text(
-                "Type : ",
-                style: TextStyle(fontSize: 16),
-              ),
-              Obx(() => DropdownButton(
-                    style: Theme.of(context).textTheme.headline6,
-                    value: controller.valueChoose.value,
-                    items: controller.listItem.map((String value) {
-                      return DropdownMenuItem(
-                          value: value,
-                          child: Text(
-                            value,
-                            style: TextStyle(fontSize: 16),
-                          ));
-                    }).toList(),
-                    onChanged: (newValue) {
-                      controller.setSelected(newValue.toString());
-                    },
-                  )),
-            ],
           ),
           SizedBox(height: 10),
           TextFormField(
@@ -78,8 +57,27 @@ class ExpensesView extends GetView<ExpensesController> {
                   }
                 },
                 child: Text(
-                    controller.isLoading.isFalse ? "SUBMIT" : "LOADING..."),
+                    controller.isLoading.isFalse ? "UPDATED" : "LOADING..."),
               )),
+          SizedBox(height: 30),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(primary: Colors.red),
+            onPressed: () {
+              Get.defaultDialog(
+                  title: "Are you sure?",
+                  middleText: "Document will be deleted",
+                  actions: [
+                    TextButton(onPressed: () => Get.back(), child: Text("NO")),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.red),
+                        onPressed: () {
+                          controller.deletedDocs();
+                        },
+                        child: Text("YES")),
+                  ]);
+            },
+            child: Text("DELETE"),
+          )
         ],
       ),
     );

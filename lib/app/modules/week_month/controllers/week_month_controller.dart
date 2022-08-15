@@ -8,6 +8,17 @@ class WeekMonthController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   final date = DateFormat("M").format(DateTime.now()).toString();
+  RxInt GrandTotal = 0.obs;
+  // Map<String, int> totalSpent = {};
+
+  // int total() {
+  //   for (var i = 0; i < 52; i++) {
+  //     GrandTotal += totalSpent["week${i + 1}"]?.toInt() ?? 0;
+  //     print(totalSpent["week${i + 1}"]);
+  //   }
+  //   print(GrandTotal);
+  //   return GrandTotal;
+  // }
 
   final valueChoose = "August".obs;
   var monthsInYear = [

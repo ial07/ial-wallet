@@ -94,10 +94,10 @@ class RegisterView extends GetView<RegisterController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't have an account."),
+              Text("Already registered."),
               TextButton(
                 onPressed: () => Get.offAllNamed(Routes.LOGIN),
-                child: Text("Register"),
+                child: Text("LOGIN"),
               ),
             ],
           ),

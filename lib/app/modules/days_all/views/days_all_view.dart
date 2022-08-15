@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:ial_wallet/app/routes/app_pages.dart';
 import 'package:intl/intl.dart';
 
 import '../controllers/days_all_controller.dart';
@@ -67,82 +68,89 @@ class DaysAllView extends StatelessWidget {
                             itemBuilder: (context, index) {
                               Map<String, dynamic> data = result[index];
 
-                              return Card(
-                                elevation: 10,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Container(
-                                  height: 70,
-                                  margin: EdgeInsets.all(10),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Text(
-                                                    "Type :",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 13),
-                                                  ),
-                                                  SizedBox(width: 10),
-                                                  Text(
-                                                    "${data["type"]}",
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: data["type"] ==
-                                                                'Daily'
-                                                            ? Colors.red
-                                                            : data["type"] ==
-                                                                    'Frequency'
-                                                                ? Colors.green
-                                                                : Colors.brown,
-                                                        fontSize: 15),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Text(
-                                                "${DateFormat("dd-MM-yyyy").format(data['date']).toString()}",
-                                                style: TextStyle(fontSize: 14),
-                                              ),
-                                              SizedBox(height: 10),
-                                              Text(
-                                                "Rp. ${data["expense"]}",
-                                                style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.red,
-                                                    fontSize: 18),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      Text(
-                                        "${data["desc"]}",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15),
-                                      ),
-                                    ],
+                              return InkWell(
+                                onTap: () => Get.toNamed(Routes.UPDATE_EXSPENSE,
+                                    arguments: data),
+                                child: Card(
+                                  elevation: 10,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Container(
+                                    height: 70,
+                                    margin: EdgeInsets.all(10),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      "Type :",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 13),
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Text(
+                                                      "${data["type"]}",
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: data["type"] ==
+                                                                  'Daily'
+                                                              ? Colors.red
+                                                              : data["type"] ==
+                                                                      'Frequency'
+                                                                  ? Colors.green
+                                                                  : Colors
+                                                                      .brown,
+                                                          fontSize: 15),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                Text(
+                                                  "${DateFormat("dd-MM-yyyy").format(data['date']).toString()}",
+                                                  style:
+                                                      TextStyle(fontSize: 14),
+                                                ),
+                                                SizedBox(height: 10),
+                                                Text(
+                                                  "Rp. ${data["expense"]}",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.red,
+                                                      fontSize: 18),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Text(
+                                          "${data["desc"]}",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               );

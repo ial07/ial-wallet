@@ -18,7 +18,7 @@ class DayMonthView extends GetView<DayMonthController> {
       length: 4,
       child: Scaffold(
           appBar: AppBar(
-            title: Text('LIST DAYS'),
+            title: Text('LIST DAYS IN MONTH'),
             centerTitle: true,
             bottom: TabBar(indicatorColor: Colors.white, tabs: [
               Tab(text: "All"),

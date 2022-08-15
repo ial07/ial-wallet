@@ -20,6 +20,12 @@ abstract class Routes {
   static const DAYS_ZAKAT = _Paths.DAYS_ZAKAT;
   static const DAYS_ALL = _Paths.DAYS_ALL;
   static const WEEK_MONTH = _Paths.WEEK_MONTH;
+  static const WEEKS_LIST = _Paths.WEEKS_LIST;
+  static const MONTHS_LIST = _Paths.MONTHS_LIST;
+  static const MONTHS_INCOME = _Paths.MONTHS_INCOME;
+  static const INCOME_LIST = _Paths.INCOME_LIST;
+  static const UPDATE_EXSPENSE = _Paths.UPDATE_EXSPENSE;
+  static const UPDATE_INCOME = _Paths.UPDATE_INCOME;
 }
 
 abstract class _Paths {
@@ -41,4 +47,10 @@ abstract class _Paths {
   static const DAYS_ZAKAT = '/days-zakat';
   static const DAYS_ALL = '/days-all';
   static const WEEK_MONTH = '/week-month';
+  static const WEEKS_LIST = '/weeks-list';
+  static const MONTHS_LIST = '/months-list';
+  static const MONTHS_INCOME = '/months-income';
+  static const INCOME_LIST = '/income-list';
+  static const UPDATE_EXSPENSE = '/update-exspense';
+  static const UPDATE_INCOME = '/update-income';
 }

@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ial_wallet/app/routes/app_pages.dart';
 import 'package:intl/intl.dart';
-import 'package:week_of_year/week_of_year.dart';
-import '../controllers/week_month_controller.dart';
 
-class WeekMonthView extends GetView<WeekMonthController> {
-  var now = DateTime.now();
+import '../controllers/months_list_controller.dart';
+
+class MonthsListView extends GetView<MonthsListController> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    // print(controller.id);
     return Scaffold(
         appBar: AppBar(
-          title: Text('LIST WEEKS AT YEAR'),
+          title: Text('LIST MONTH AT YEAR'),
           centerTitle: true,
         ),
         body: ListView(
@@ -26,7 +26,7 @@ class WeekMonthView extends GetView<WeekMonthController> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                    stream: controller.streamWeeksAll(),
+                    stream: controller.streamMonthList(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
                         return Center(child: CircularProgressIndicator());
@@ -49,7 +49,7 @@ class WeekMonthView extends GetView<WeekMonthController> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "You have spent a week",
+                                        "You have spent money",
                                         style: TextStyle(
                                             fontSize: 19,
                                             color: Colors.black87),
@@ -93,17 +93,17 @@ class WeekMonthView extends GetView<WeekMonthController> {
                           result.add(data);
                         }
                         result.sort((a, b) => a["date"].compareTo(b["date"]));
-                        Map<String, dynamic> week = {};
+                        Map<String, dynamic> month = {};
 
-                        for (int i = 1; i < 53; i++) {
+                        for (int i = 1; i < 13; i++) {
                           List<dynamic> content = [];
                           for (int j = 0; j < result.length; j++) {
-                            if (result[j]["week"] == i) {
+                            if (result[j]["month"] == i) {
                               content.add(result[j]);
                             }
                           }
                           // print(content);
-                          week["week" + i.toString()] = content;
+                          month["month" + i.toString()] = content;
                         }
 
                         // int GrandTotal = 0;
@@ -121,21 +121,23 @@ class WeekMonthView extends GetView<WeekMonthController> {
                               SizedBox(
                                 height: size.height * 0.80,
                                 child: ListView.builder(
-                                    itemCount: week.length,
+                                    itemCount: month.length,
                                     itemBuilder: (context, index) {
                                       // controller.GrandTotal.value = 0;
                                       // for (var i = 0; i < week.length; i++) {
                                       int total = 0;
-                                      if (week["week${index + 1}"] != null) {
-                                        List<dynamic> weekj =
-                                            week["week${index + 1}"];
-                                        for (var j = 0; j < weekj.length; j++) {
+                                      if (month["month${index + 1}"] != null) {
+                                        List<dynamic> monthj =
+                                            month["month${index + 1}"];
+                                        for (var j = 0;
+                                            j < monthj.length;
+                                            j++) {
                                           total +=
-                                              int.parse(weekj[j]["expense"]);
+                                              int.parse(monthj[j]["expense"]);
                                         }
                                       }
-                                      // print("week ke ${index 1} $total");
-                                      totalSpent["week${index + 1}"] = total;
+                                      // print("month ke ${index 1} $total");
+                                      totalSpent["month${index + 1}"] = total;
                                       //   controller.GrandTotal.value += total;
                                       // }
 
@@ -164,14 +166,14 @@ class WeekMonthView extends GetView<WeekMonthController> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     Text(
-                                                      "Week ${id}",
+                                                      "You spent money in month ${id}",
                                                       style: TextStyle(
                                                           fontSize: 22,
                                                           color:
                                                               Colors.black87),
                                                     ),
                                                     Text(
-                                                      "Rp. ${f.format(totalSpent["week${index + 1}"])}",
+                                                      "Rp. ${f.format(totalSpent["month${index + 1}"])}",
                                                       style: TextStyle(
                                                         fontSize: 32,
                                                         fontWeight:
@@ -182,27 +184,6 @@ class WeekMonthView extends GetView<WeekMonthController> {
                                                     ),
                                                   ],
                                                 ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    TextButton(
-                                                      onPressed: () =>
-                                                          Get.toNamed(
-                                                              Routes.WEEKS_LIST,
-                                                              arguments: id),
-                                                      child: Text(
-                                                        "VIEW MORE",
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 16,
-                                                            color:
-                                                                Colors.black),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )
                                               ],
                                             ),
                                           ),
@@ -220,7 +201,7 @@ class WeekMonthView extends GetView<WeekMonthController> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Text("Today in week ${now.weekOfYear} ",
+                                      Text("NOW AT YEAR ${DateTime.now().year}",
                                           style: TextStyle(
                                               fontSize: 22,
                                               fontWeight: FontWeight.bold)),

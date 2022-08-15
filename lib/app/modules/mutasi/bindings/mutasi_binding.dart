@@ -5,8 +5,6 @@ import '../controllers/mutasi_controller.dart';
 class MutasiBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MutasiController>(
-      () => MutasiController(),
-    );
+    Get.put(MutasiController(), permanent: true);
   }
 }

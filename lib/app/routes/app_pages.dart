@@ -20,20 +20,32 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/inclusions/bindings/inclusions_binding.dart';
 import '../modules/inclusions/views/inclusions_view.dart';
+import '../modules/income_list/bindings/income_list_binding.dart';
+import '../modules/income_list/views/income_list_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/months_income/bindings/months_income_binding.dart';
+import '../modules/months_income/views/months_income_view.dart';
+import '../modules/months_list/bindings/months_list_binding.dart';
+import '../modules/months_list/views/months_list_view.dart';
 import '../modules/mutasi/bindings/mutasi_binding.dart';
 import '../modules/mutasi/views/mutasi_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/update_exspense/bindings/update_exspense_binding.dart';
+import '../modules/update_exspense/views/update_exspense_view.dart';
+import '../modules/update_income/bindings/update_income_binding.dart';
+import '../modules/update_income/views/update_income_view.dart';
 import '../modules/update_password/bindings/update_password_binding.dart';
 import '../modules/update_password/views/update_password_view.dart';
 import '../modules/update_profile/bindings/update_profile_binding.dart';
 import '../modules/update_profile/views/update_profile_view.dart';
 import '../modules/week_month/bindings/week_month_binding.dart';
 import '../modules/week_month/views/week_month_view.dart';
+import '../modules/weeks_list/bindings/weeks_list_binding.dart';
+import '../modules/weeks_list/views/weeks_list_view.dart';
 
 part 'app_routes.dart';
 
@@ -130,6 +142,36 @@ class AppPages {
       name: _Paths.WEEK_MONTH,
       page: () => WeekMonthView(),
       binding: WeekMonthBinding(),
+    ),
+    GetPage(
+      name: _Paths.WEEKS_LIST,
+      page: () => WeeksListView(),
+      binding: WeeksListBinding(),
+    ),
+    GetPage(
+      name: _Paths.MONTHS_LIST,
+      page: () => MonthsListView(),
+      binding: MonthsListBinding(),
+    ),
+    GetPage(
+      name: _Paths.MONTHS_INCOME,
+      page: () => MonthsIncomeView(),
+      binding: MonthsIncomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.INCOME_LIST,
+      page: () => IncomeListView(),
+      binding: IncomeListBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPDATE_EXSPENSE,
+      page: () => UpdateExspenseView(),
+      binding: UpdateExspenseBinding(),
+    ),
+    GetPage(
+      name: _Paths.UPDATE_INCOME,
+      page: () => UpdateIncomeView(),
+      binding: UpdateIncomeBinding(),
     ),
   ];
 }

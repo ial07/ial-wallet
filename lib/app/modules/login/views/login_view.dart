@@ -54,7 +54,7 @@ class LoginView extends GetView<LoginController> {
               Text("Don't have an account."),
               TextButton(
                 onPressed: () => Get.offAllNamed(Routes.REGISTER),
-                child: Text("Register"),
+                child: Text("REGISTER"),
               ),
             ],
           ),

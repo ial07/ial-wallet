@@ -19,6 +19,7 @@ dependencies:
   google_fonts: 3.0.1
   intl: 0.17.0
   week_of_year: 2.0.0
+  flip_card: 0.6.0
   flutter:
     sdk: flutter
 

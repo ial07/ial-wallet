@@ -9,7 +9,7 @@ class InclusionsView extends GetView<InclusionsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('INCLUSION'),
+        title: Text('INCOME'),
         centerTitle: true,
       ),
       body: ListView(
@@ -20,14 +20,14 @@ class InclusionsView extends GetView<InclusionsController> {
             autocorrect: false,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              labelText: "Your Inclusion",
+              labelText: "Your Income",
               border: OutlineInputBorder(),
             ),
           ),
           SizedBox(height: 10),
           TextFormField(
             controller: controller.descC,
-            maxLength: 80,
+            maxLength: 30,
             autocorrect: false,
             decoration: InputDecoration(
               labelText: "Descriptions",
