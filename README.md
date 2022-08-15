@@ -47,8 +47,7 @@ void main() {
  1. First, you must register into the apps, and validate your email on inbox or spam
 ![register](/images/1.png)
  2. login page
-![Login](images/2.png)
+![Login](/images/2.png)
  3. input exspenses apps 
-![homepage](images/3.png)
- <br>
+![homepage](/images/3.png)
 
