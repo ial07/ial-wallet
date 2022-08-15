@@ -55,7 +55,7 @@ void main() {
  4. income 
 ![income](/images/5.PNG)
  5. total money left (income month - expense month) 
-![card](/images/5.PNG)
+![card](/images/6.PNG)
  6. mutasi 
-![mutasi](/images/6.PNG)
+![mutasi](/images/7.PNG)
                                
