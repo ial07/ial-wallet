@@ -46,11 +46,11 @@ void main() {
 
 <br>
  1. First, you must register into the apps, and validate your email on inbox or spam
-![Register](images/1.PNG)
+![Register](images/1.png)
  <br>
  2. login page
-![Login](images/2.PNG)
+![Login](images/2.png)
  <br>
  3. input exspenses apps 
-![homepage](images/3.PNG)
+![homepage](images/3.png)
  <br>
