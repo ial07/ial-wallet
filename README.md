@@ -49,8 +49,8 @@ void main() {
 ![Register](images/1.PNG)
  <br>
  2. then login into the apps 
-![Register](images/2.PNG)
+![Login](images/2.PNG)
  <br>
  3. home page apps 
-![Register](images/3.PNG)
+![homepage](images/3.PNG)
  <br>
