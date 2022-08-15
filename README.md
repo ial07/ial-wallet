@@ -48,9 +48,4 @@ void main() {
  1. First, you must register into the apps, and validate your email on inbox or spam
 ![Register](images/1.PNG)
  <br>
- 2. then login into the apps 
-![Login](images/2.PNG)
- <br>
- 3. home page apps 
-![homepage](images/3.PNG)
- <br>
+
