@@ -46,4 +46,4 @@ void main() {
 
 <br>
  1. First, you must register into the apps, and validate your email on inbox or spam
-![GitHub Logo](images/1.png)
+![GitHub Logo](/images/1.png)
